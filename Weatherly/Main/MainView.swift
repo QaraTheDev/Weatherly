@@ -9,6 +9,10 @@ import UIKit
 
 class MainView: UIView{
     
+//    let weatherData = WeatherData(weatherData: Weather)
+    
+    var fetchedData: WeatherData?
+    
     var cityLabel: UILabel!
     var cityTemp: UILabel!
     var cityCondition: UILabel!
@@ -38,7 +42,7 @@ private extension MainView {
         cityLabel = {
             let label = UILabel()
             label.textAlignment = .center
-            label.text = "Astana"
+//            label.text = "\(weatherData.name)"
             label.textColor = .white
             label.font = .systemFont(ofSize: 35, weight: .light)
             return label
@@ -46,7 +50,7 @@ private extension MainView {
         cityTemp = {
             let label = UILabel()
             label.textAlignment = .center
-            label.text = "19" + "C"
+//            label.text = "\(weatherData.temperature)" + "C"
             label.textColor = .white
             label.font = .systemFont(ofSize: 65, weight: .thin)
             return label
@@ -56,7 +60,7 @@ private extension MainView {
             let label = UILabel()
             label.layer.opacity = 0.6
             label.textColor = .white
-            label.text = "Mostly Clear"
+//            label.text = "\(weatherData.description)"
             label.font = .systemFont(ofSize: 16, weight: .semibold)
             return label
         }()
@@ -69,14 +73,14 @@ private extension MainView {
         }()
         maxTemp = {
             let label = UILabel()
-            label.text = "H:" + "19" + "C"
+//            label.text = "H:" + "\(weatherData.tempMax)" + "C"
             label.textColor = .white
             label.font = .systemFont(ofSize: 14, weight: .semibold)
             return label
         }()
         minTemp = {
             let label = UILabel()
-            label.text = "L:" + "19" + "C"
+//            label.text = "L:" + "\(weatherData.tempMin)" + "C"
             label.textColor = .white
             label.font = .systemFont(ofSize: 14, weight: .semibold)
             return label

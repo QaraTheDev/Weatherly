@@ -11,8 +11,8 @@ struct NetworkController {
     
     let apiKey = "2354107261c79becda7833e8942d757e"
 
-    func fetchWeather() {
-        let urlBase = "https://api.openweathermap.org/data/2.5/weather?lat=51.147769&lon=71.414355&appid=\(apiKey)"
+    func fetchWeather(latitude: Double, longitude: Double, completionHandler: @escaping (WeatherData) -> Void) {
+        let urlBase = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)"
         guard let url = URL(string: urlBase) else { return }
         
         var request = URLRequest(url: url, timeoutInterval: Double.infinity)
@@ -23,11 +23,10 @@ struct NetworkController {
                 print(String(describing: error))
                 return
             }
-//            print(String(data: data, encoding: .utf8)!)
-            
-//            if let weather = self.parseJSON(withData: data) {
-//                print(weather)
-//            }
+            if let weather = self.parseJSON(withData: data) {
+                print(weather)
+//               completionHandler(weather)
+            }
         }
         
         task.resume()

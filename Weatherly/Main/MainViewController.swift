@@ -9,10 +9,12 @@ import SnapKit
 import UIKit
 
 class MainViewController: UIViewController {
-    
     let contentView = MainView()
     let networkController = NetworkController()
     let coreLocationController = CoreLocationController()
+    
+    var fetchedData: WeatherData?
+    let nameCitiesArray = ["Nur-Sultan","Almaty","Frankfurt-am-Main","Seattle","Miami"]
     
     override func loadView() {
         super.loadView()
@@ -22,9 +24,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CoreLocationController().getCoordinateFrom(city: "Seattle") { coordinate, error in
-            print(coordinate)
+        coreLocationController.getCitiesWeather(citiesArray: nameCitiesArray) { index, weatherData in
+            self.fetchedData = weatherData
         }
-        networkController.fetchWeather()
     }
 }

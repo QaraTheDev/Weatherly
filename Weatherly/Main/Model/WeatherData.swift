@@ -8,10 +8,10 @@
 import Foundation
 
 struct WeatherData {
-    var temperature: Double
-    var feelsLike: Double
-    var tempMin: Double
-    var tempMax: Double
+    var temperature: Int
+    var feelsLike: Int
+    var tempMin: Int
+    var tempMax: Int
     var description: String
     var name: String
     

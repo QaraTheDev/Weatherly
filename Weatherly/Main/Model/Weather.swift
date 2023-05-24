@@ -35,7 +35,7 @@ struct Coord: Decodable {
 
 // MARK: - Main
 struct Main: Decodable {
-    let temp, feelsLike, tempMin, tempMax: Double
+    let temp, feelsLike, tempMin, tempMax: Int
     let pressure, humidity: Int
 
     enum CodingKeys: String, CodingKey {
